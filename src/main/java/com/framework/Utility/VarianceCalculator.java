@@ -22,4 +22,10 @@ public class VarianceCalculator {
 		return variance;
 	}
 	
+	public static double getMean(double n1, double n2) {
+		double mean = (n1+n2)/2;
+		//System.out.println("Mean: "+mean);
+		return mean;
+	}
+	
 }

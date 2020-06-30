@@ -30,7 +30,7 @@ public class WeatherTest extends base {
 
 	// PHASE-1
 	@Test(priority = 1, enabled = true)
-	public void searchCityTemperatureTest() throws InterruptedException {
+	public void searchCityNameTest() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		WeatherPage weather = new WeatherPage();
 		// Navigate to Weather Tab
@@ -68,8 +68,7 @@ public class WeatherTest extends base {
 	@Test(priority = 3, enabled = true)
 	public void attributeComparator() {
 		double variance_Temperature = VarianceCalculator.getVariance(tempInFahrenheitFromNDTV, tempInFahrenheitFromAPI);
-		double variance_Humidity = VarianceCalculator.getVariance(humidityInPercentageFromNDTV,
-				humidityInPercentageFromAPI);
+		double variance_Humidity = VarianceCalculator.getVariance(humidityInPercentageFromNDTV,humidityInPercentageFromAPI);
 		System.out.println("Temperature Variance is: " + variance_Temperature);
 		System.out.println("Humidity Variance is: " + variance_Humidity);
 
@@ -77,7 +76,7 @@ public class WeatherTest extends base {
 		Assert.assertTrue(temperatureRange);
 		System.out.println("Temperature difference is within the range specified...");
 
-		boolean humidityRange = RangeMatcher.isTempWithinSpecifiedRange(variance_Humidity);
+		boolean humidityRange = RangeMatcher.isHumidityWithinSpecifiedRange(variance_Humidity);
 		Assert.assertTrue(humidityRange);
 		System.out.println("Humidity difference is within the range specified...");
 	}
