@@ -57,10 +57,10 @@ public class WeatherTest extends base {
 		RestClient restClient = new RestClient();
 		JSONObject responseJSON = restClient.getResponseJSON(apiUrl); // Response JSON received from API
 
-		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // to get temperature from API
+		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // get temperature from API
 		System.out.println("Temperature from API in Fahrenheit: " + tempInFahrenheitFromAPI);
 
-		humidityInPercentageFromAPI = restClient.getHumidityInfo(responseJSON); // to get humidity from API
+		humidityInPercentageFromAPI = restClient.getHumidityInfo(responseJSON); // get humidity from API
 		System.out.println("Humidity from API in Percentage: " + humidityInPercentageFromAPI);
 	}
 

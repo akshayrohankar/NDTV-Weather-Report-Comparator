@@ -12,9 +12,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-import com.framework.Resources.base;
-
-public class RestClient extends base {
+public class RestClient {
 
 	public JSONObject getResponseJSON(String url) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -37,8 +35,7 @@ public class RestClient extends base {
 		double kelvin = object.getDouble("temp");
 		// System.out.println("Temerature from API in Kelvin: " + kelvin);
 
-		double fahrenheit = ((kelvin - 273.15) * 9 / 5) + 32; // Formula to convert K to F ---> (297.13K − 273.15) × 9/5
-																// + 32 = 75.164°F
+		double fahrenheit = ((kelvin - 273.15) * 9 / 5) + 32; // Formula to convert K to F ---> (297.13K − 273.15) × 9/5 + 32 = 75.164°F
 		BigDecimal bd = new BigDecimal(fahrenheit);
 		bd = bd.round(new MathContext(3));
 		double roundedTempInFahrenheit = bd.doubleValue();

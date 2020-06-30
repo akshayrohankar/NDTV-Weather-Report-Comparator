@@ -2,7 +2,7 @@ package com.framework.Utility;
 
 public class RangeMatcher {
 	static double degree = 2; // variance allowed upto 2 degree
-	static double fahrenheit = 35.6; // variance allowed upto 35.6 F
+	static double fahrenheit = 35.6; // variance allowed upto 35.6 F // 2 degree C
 	static double humidity = 10; // variance allowed upto 35.6 F
 
 	public static boolean isTempWithinSpecifiedRange(double variance) {

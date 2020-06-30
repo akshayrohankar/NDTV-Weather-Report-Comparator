@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23738" started-at="2020-06-30T20:17:41 IST" finished-at="2020-06-30T20:18:05 IST">
+  <suite name="Default suite" duration-ms="25866" started-at="2020-07-01T01:33:57 IST" finished-at="2020-07-01T01:34:23 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23738" started-at="2020-06-30T20:17:41 IST" finished-at="2020-06-30T20:18:05 IST">
+    <test name="Default test" duration-ms="25866" started-at="2020-07-01T01:33:57 IST" finished-at="2020-07-01T01:34:23 IST">
       <class name="com.framework.WeatherCompareTest.WeatherTest">
-        <test-method status="PASS" signature="initialize()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="initialize" is-config="true" duration-ms="10710" started-at="2020-06-30T20:17:41 IST" finished-at="2020-06-30T20:17:52 IST">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="initialize" is-config="true" duration-ms="11978" started-at="2020-07-01T01:33:57 IST" finished-at="2020-07-01T01:34:09 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="searchCityTemperatureTest()[pri:1, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="searchCityTemperatureTest" duration-ms="11650" started-at="2020-06-30T20:17:52 IST" finished-at="2020-06-30T20:18:03 IST">
+        <test-method status="PASS" signature="searchCityNameTest()[pri:1, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="searchCityNameTest" duration-ms="12459" started-at="2020-07-01T01:34:09 IST" finished-at="2020-07-01T01:34:21 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchCityTemperatureTest -->
-        <test-method status="PASS" signature="dataFromAPI()[pri:2, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="dataFromAPI" duration-ms="160" started-at="2020-06-30T20:18:03 IST" finished-at="2020-06-30T20:18:04 IST">
+        </test-method> <!-- searchCityNameTest -->
+        <test-method status="PASS" signature="dataFromAPI()[pri:2, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="dataFromAPI" duration-ms="178" started-at="2020-07-01T01:34:21 IST" finished-at="2020-07-01T01:34:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataFromAPI -->
-        <test-method status="FAIL" signature="attributeComparator()[pri:3, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="attributeComparator" duration-ms="12" started-at="2020-06-30T20:18:04 IST" finished-at="2020-06-30T20:18:04 IST">
+        <test-method status="FAIL" signature="attributeComparator()[pri:3, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="attributeComparator" duration-ms="13" started-at="2020-07-01T01:34:22 IST" finished-at="2020-07-01T01:34:22 IST">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[did not expect to find [true] but found [false]]]>
@@ -65,7 +65,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- attributeComparator -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="teardown" is-config="true" duration-ms="1155" started-at="2020-06-30T20:18:04 IST" finished-at="2020-06-30T20:18:05 IST">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="teardown" is-config="true" duration-ms="1136" started-at="2020-07-01T01:34:22 IST" finished-at="2020-07-01T01:34:23 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
