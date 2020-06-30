@@ -17,8 +17,10 @@ import com.framework.Utility.RangeMatcher;
 import com.framework.Utility.VarianceCalculator;
 
 public class WeatherTest extends base {
-	static double tempInFahrenheitFromNDTV;
-	static double tempInFahrenheitFromAPI;
+	static double tempInFahrenheitFromNDTV = 0;
+	static double tempInFahrenheitFromAPI = 0;
+	static double humidityInPercentageFromNDTV = 0;
+	static double humidityInPercentageFromAPI = 0;
 
 	@BeforeTest
 	public void initialize() throws IOException {
@@ -42,6 +44,9 @@ public class WeatherTest extends base {
 		// Display temperature information in both D and F from view
 		tempInFahrenheitFromNDTV = weather.DisplayTempInformation();
 		System.out.println("Temperature from NDTV in Fahrenheit: " + tempInFahrenheitFromNDTV);
+		// Display humidity information in percentage from view
+		humidityInPercentageFromNDTV = weather.DisplayHumidityInformation();
+		System.out.println("Humidity from NDTV in Percentage: " + humidityInPercentageFromNDTV);
 	}
 
 	// PHASE-2
@@ -49,22 +54,32 @@ public class WeatherTest extends base {
 	public void dataFromAPI() throws ClientProtocolException, IOException {
 		String apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + prop.getProperty("search_city")
 				+ "&appid=" + prop.getProperty("API_key");
-
 		RestClient restClient = new RestClient();
 		JSONObject responseJSON = restClient.getResponseJSON(apiUrl); // Response JSON received from API
 
-		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // to get attribute values
+		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // to get temperature from API
 		System.out.println("Temperature from API in Fahrenheit: " + tempInFahrenheitFromAPI);
+
+		humidityInPercentageFromAPI = restClient.getHumidityInfo(responseJSON); // to get humidity from API
+		System.out.println("Humidity from API in Percentage: " + humidityInPercentageFromAPI);
 	}
 
 	// PHASE-3
 	@Test(priority = 3, enabled = true)
-	public void tempComparator() {
-		double variance = VarianceCalculator.getVariance(tempInFahrenheitFromNDTV, tempInFahrenheitFromAPI);
-		System.out.println("Variance is: " + variance);
-		boolean inRange = RangeMatcher.isTempWithinSpecifiedRange(variance);
-		Assert.assertTrue(inRange);
+	public void attributeComparator() {
+		double variance_Temperature = VarianceCalculator.getVariance(tempInFahrenheitFromNDTV, tempInFahrenheitFromAPI);
+		double variance_Humidity = VarianceCalculator.getVariance(humidityInPercentageFromNDTV,
+				humidityInPercentageFromAPI);
+		System.out.println("Temperature Variance is: " + variance_Temperature);
+		System.out.println("Humidity Variance is: " + variance_Humidity);
+
+		boolean temperatureRange = RangeMatcher.isTempWithinSpecifiedRange(variance_Temperature);
+		Assert.assertTrue(temperatureRange);
 		System.out.println("Temperature difference is within the range specified...");
+
+		boolean humidityRange = RangeMatcher.isTempWithinSpecifiedRange(variance_Humidity);
+		Assert.assertTrue(humidityRange);
+		System.out.println("Humidity difference is within the range specified...");
 	}
 
 	@AfterTest

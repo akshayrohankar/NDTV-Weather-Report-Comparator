@@ -33,6 +33,10 @@ public class WeatherPage extends base {
 
 	@FindBy(xpath = "//b[contains(text(),'Temp in Fahrenheit:')]")
 	public WebElement tempInformationInF;
+	
+	@FindBy(xpath = "//b[contains(text(),'Humidity:')]")
+	public WebElement humidityInformationInPercentage;
+	
 
 	public void SearchCity(String cityName) throws InterruptedException {
 		searchBox_PinYourCity.sendKeys(cityName);
@@ -51,10 +55,10 @@ public class WeatherPage extends base {
 	}
 
 	public void ValidateCityName() throws InterruptedException {
-		WebElement cities = list_PinYourCity;
-		List<WebElement> cityList = cities.findElements(By.tagName("label"));
-		int cityCount = cityList.size();
-		System.out.println("Count of list of cities available: " + cityCount);
+		//WebElement cities = list_PinYourCity;
+		//List<WebElement> cityList = cities.findElements(By.tagName("label"));
+		//int cityCount = cityList.size();
+		//System.out.println("Count of list of cities available: " + cityCount);
 
 		List<WebElement> resultCityList = driver.findElements(By.xpath("//div[@id='messages']"));
 		int flag = resultCityList.size();
@@ -91,6 +95,16 @@ public class WeatherPage extends base {
 		String[] tempArray = tempInformationOfCityInFahrnt.split(":");
 		double tempInFahrnt = Double.parseDouble(tempArray[1].trim());
 		return tempInFahrnt;
+	}
+	
+	public double DisplayHumidityInformation() {
+		// humidity information from view
+		String humidityInfo = humidityInformationInPercentage.getText();
+		//System.out.println(humidityInfo);
+		String[] humidityArray = humidityInfo.split(":");
+		String percentage = humidityArray[1].trim().replaceAll("[^a-zA-Z0-9]", "");
+		double humidity = Double.parseDouble(percentage);
+		return humidity;
 	}
 
 }
