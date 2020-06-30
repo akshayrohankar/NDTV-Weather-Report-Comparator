@@ -1,6 +1,7 @@
 # NDTV Weather Report Comparator
 Weather Reporting Comparator that compares weather reporting done by 2 sources. 
-NDTV Weather Report Comparator.
+Source 1 : The website https://www.ndtv.com/ .
+Source 2 : The public weather API by https://openweathermap.org/
 
 # Automation Requirements:
 Phase 1
