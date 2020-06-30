@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.framework.FlightSearchTest.WeatherTest">
+      <class name="com.framework.WeatherCompareTest.WeatherTest">
         <methods>
-          <include name="teardown"/>
-          <include name="searchFlightFunctionalityTest"/>
           <include name="initialize"/>
+          <include name="teardown"/>
+          <include name="dataFromAPI"/>
+          <include name="searchCityTemperatureTest"/>
         </methods>
-      </class> <!-- com.framework.FlightSearchTest.WeatherTest -->
+      </class> <!-- com.framework.WeatherCompareTest.WeatherTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

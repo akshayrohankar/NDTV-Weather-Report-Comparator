@@ -3,6 +3,7 @@ package com.framework.PageObjectRepository;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -26,22 +27,26 @@ public class WeatherPage extends base {
 
 	@FindBy(xpath = "//div[@id='messages']//input")
 	public WebElement cityCheckbox;
-	
+
 	@FindBy(xpath = "//b[contains(text(),'Temp in Degrees:')]")
 	public WebElement tempInformationInD;
 
 	@FindBy(xpath = "//b[contains(text(),'Temp in Fahrenheit:')]")
 	public WebElement tempInformationInF;
 
-	
-
 	public void SearchCity(String cityName) throws InterruptedException {
 		searchBox_PinYourCity.sendKeys(cityName);
 		Thread.sleep(2000);
-		String displayCheckbox = "//input[@id='" + prop.getProperty("search_city") + "']";
-		WebElement checkbox = driver.findElement(By.xpath(displayCheckbox));
-		if (!checkbox.isSelected()) {
-			checkbox.click();
+		try {
+			String displayCheckbox = "//input[@id='" + prop.getProperty("search_city") + "']";
+			WebElement checkbox = driver.findElement(By.xpath(displayCheckbox));
+			if (!checkbox.isSelected()) {
+				checkbox.click();
+			}
+		} catch (NoSuchElementException exception) {
+			System.out.println("Invalid City name entered");
+			driver.close();
+			System.exit(0);
 		}
 	}
 
@@ -78,12 +83,14 @@ public class WeatherPage extends base {
 		Thread.sleep(3000);
 	}
 
-	public void DisplayTempInformation() {
+	public double DisplayTempInformation() {
 		// temp information from view
-		String tempInformationOfCityInDegree = tempInformationInD.getText();
+		// String tempInformationOfCityInDegree = tempInformationInD.getText();
 		String tempInformationOfCityInFahrnt = tempInformationInF.getText();
-		System.out.println(tempInformationOfCityInDegree);
-		System.out.println(tempInformationOfCityInFahrnt);
+		// System.out.println(tempInformationOfCityInDegree);
+		String[] tempArray = tempInformationOfCityInFahrnt.split(":");
+		double tempInFahrnt = Double.parseDouble(tempArray[1].trim());
+		return tempInFahrnt;
 	}
 
 }
