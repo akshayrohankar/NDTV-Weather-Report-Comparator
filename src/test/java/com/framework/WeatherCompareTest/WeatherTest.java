@@ -3,6 +3,8 @@ package com.framework.WeatherCompareTest;
 import java.io.IOException;
 
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -21,6 +23,7 @@ public class WeatherTest extends base {
 	static double tempInFahrenheitFromAPI = 0;
 	static double humidityInPercentageFromNDTV = 0;
 	static double humidityInPercentageFromAPI = 0;
+	CloseableHttpResponse closeableHttpResponse;
 
 	@BeforeTest
 	public void initialize() throws IOException {
@@ -54,8 +57,17 @@ public class WeatherTest extends base {
 	public void dataFromAPI() throws ClientProtocolException, IOException {
 		String apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + prop.getProperty("search_city")
 				+ "&appid=" + prop.getProperty("API_key");
+		
 		RestClient restClient = new RestClient();
-		JSONObject responseJSON = restClient.getResponseJSON(apiUrl); // Response JSON received from API
+		closeableHttpResponse = restClient.get(apiUrl); // Response JSON received from API
+		
+		int statusCode = closeableHttpResponse.getStatusLine().getStatusCode(); // Status code for API
+		Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE, "Status code is not 200.");
+
+		String responseRawString = EntityUtils.toString(closeableHttpResponse.getEntity(), "UTF-8"); // JSON Raw String
+		JSONObject responseJSON = new JSONObject(responseRawString); // JSON formatter
+		// System.out.println("Response JSON from API: " + responseJSON);
+		// To validate JSON file visit https://jsonlint.com/
 
 		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // get temperature from API
 		System.out.println("Temperature from API in Fahrenheit: " + tempInFahrenheitFromAPI);

@@ -18,6 +18,7 @@ public abstract class base {
 
 	public static WebDriver driver;
 	public static Properties prop;
+	public int RESPONSE_STATUS_CODE = 200;
 
 	public WebDriver initializeDriver() throws IOException
 	{

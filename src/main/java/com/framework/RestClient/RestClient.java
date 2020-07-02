@@ -9,24 +9,15 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 public class RestClient {
 
-	public JSONObject getResponseJSON(String url) throws ClientProtocolException, IOException {
+	public CloseableHttpResponse get(String url) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url); // Http get request
 		CloseableHttpResponse closeableHttpResponse = httpClient.execute(httpGet);
-		int statusCode = closeableHttpResponse.getStatusLine().getStatusCode(); // Status code for API
-		System.out.println("Status code: " + statusCode);
-
-		String responseRawString = EntityUtils.toString(closeableHttpResponse.getEntity(), "UTF-8"); // JSON Raw String
-
-		JSONObject responseJSON = new JSONObject(responseRawString); // JSON formatter
-		// System.out.println("Response JSON from API: " + responseJSON);
-		// To validate JSON file visit https://jsonlint.com/
-		return responseJSON;
+		return closeableHttpResponse;
 	}
 
 	public double getTempInfo(JSONObject responseJSON) {
