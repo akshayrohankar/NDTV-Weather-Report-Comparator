@@ -60,18 +60,12 @@ public class WeatherTest extends base {
 		
 		RestClient restClient = new RestClient();
 		closeableHttpResponse = restClient.get(apiUrl); // Response JSON received from API
-		
 		int statusCode = closeableHttpResponse.getStatusLine().getStatusCode(); // Status code for API
 		Assert.assertEquals(statusCode, RESPONSE_STATUS_CODE, "Status code is not 200.");
-
 		String responseRawString = EntityUtils.toString(closeableHttpResponse.getEntity(), "UTF-8"); // JSON Raw String
 		JSONObject responseJSON = new JSONObject(responseRawString); // JSON formatter
-		// System.out.println("Response JSON from API: " + responseJSON);
-		// To validate JSON file visit https://jsonlint.com/
-
 		tempInFahrenheitFromAPI = restClient.getTempInfo(responseJSON); // get temperature from API
 		System.out.println("Temperature from API in Fahrenheit: " + tempInFahrenheitFromAPI);
-
 		humidityInPercentageFromAPI = restClient.getHumidityInfo(responseJSON); // get humidity from API
 		System.out.println("Humidity from API in Percentage: " + humidityInPercentageFromAPI);
 	}
@@ -83,7 +77,7 @@ public class WeatherTest extends base {
 		double variance_Humidity = VarianceCalculator.getVariance(humidityInPercentageFromNDTV,humidityInPercentageFromAPI);
 		System.out.println("Temperature Variance is: " + variance_Temperature);
 		System.out.println("Humidity Variance is: " + variance_Humidity);
-
+		
 		boolean temperatureRange = RangeMatcher.isTempWithinSpecifiedRange(variance_Temperature);
 		Assert.assertTrue(temperatureRange);
 		System.out.println("Temperature variance is within the range specified...");

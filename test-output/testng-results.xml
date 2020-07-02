@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23438" started-at="2020-07-02T21:28:17 IST" finished-at="2020-07-02T21:28:41 IST">
+  <suite name="Default suite" duration-ms="20474" started-at="2020-07-03T00:28:34 IST" finished-at="2020-07-03T00:28:54 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23438" started-at="2020-07-02T21:28:17 IST" finished-at="2020-07-02T21:28:41 IST">
+    <test name="Default test" duration-ms="20474" started-at="2020-07-03T00:28:34 IST" finished-at="2020-07-03T00:28:54 IST">
       <class name="com.framework.WeatherCompareTest.WeatherTest">
-        <test-method status="PASS" signature="initialize()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="initialize" is-config="true" duration-ms="10754" started-at="2020-07-02T21:28:17 IST" finished-at="2020-07-02T21:28:28 IST">
+        <test-method status="PASS" signature="initialize()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="initialize" is-config="true" duration-ms="8092" started-at="2020-07-03T00:28:34 IST" finished-at="2020-07-03T00:28:42 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialize -->
-        <test-method status="PASS" signature="searchCityNameTest()[pri:1, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="searchCityNameTest" duration-ms="11356" started-at="2020-07-02T21:28:28 IST" finished-at="2020-07-02T21:28:40 IST">
+        <test-method status="PASS" signature="searchCityNameTest()[pri:1, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="searchCityNameTest" duration-ms="11396" started-at="2020-07-03T00:28:42 IST" finished-at="2020-07-03T00:28:53 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchCityNameTest -->
-        <test-method status="PASS" signature="dataFromAPI()[pri:2, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="dataFromAPI" duration-ms="156" started-at="2020-07-02T21:28:40 IST" finished-at="2020-07-02T21:28:40 IST">
+        <test-method status="PASS" signature="dataFromAPI()[pri:2, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="dataFromAPI" duration-ms="132" started-at="2020-07-03T00:28:53 IST" finished-at="2020-07-03T00:28:53 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataFromAPI -->
-        <test-method status="PASS" signature="attributeComparator()[pri:3, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="attributeComparator" duration-ms="9" started-at="2020-07-02T21:28:40 IST" finished-at="2020-07-02T21:28:40 IST">
+        <test-method status="PASS" signature="attributeComparator()[pri:3, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="attributeComparator" duration-ms="2" started-at="2020-07-03T00:28:53 IST" finished-at="2020-07-03T00:28:53 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- attributeComparator -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="teardown" is-config="true" duration-ms="1087" started-at="2020-07-02T21:28:40 IST" finished-at="2020-07-02T21:28:41 IST">
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.framework.WeatherCompareTest.WeatherTest@2bea5ab4]" name="teardown" is-config="true" duration-ms="823" started-at="2020-07-03T00:28:53 IST" finished-at="2020-07-03T00:28:54 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

@@ -7,7 +7,7 @@
         <methods>
           <include name="initialize"/>
           <include name="teardown"/>
-          <include name="attributeComparator"/>
+          <include name="dataFromAPI"/>
         </methods>
       </class> <!-- com.framework.WeatherCompareTest.WeatherTest -->
     </classes>
